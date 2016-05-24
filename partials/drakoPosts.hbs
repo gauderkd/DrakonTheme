@@ -1,0 +1,28 @@
+{{#foreach posts}}
+    
+    <time class="excerpt-date" datetime="{{date format='YYYY-MM-DD'}}">
+      {{date format="YYYY MMM DD"}}
+    </time>
+  <div class="post-wrapper">
+      <div class="postDivider"></div>
+    {{#if image}}
+        <a class="excerpt-image" style="background-image:url({{image}})" href="{{url}}">
+        </a>
+    {{/if}}
+      <div class="post-excerpt">
+        <a class="excerpt-title" href="{{url}}">
+          <h2>{{title}}</h2>
+        </a>
+        <a class="excerpt-description">
+          {{excerpt words="100"}}
+        </a>
+        {{#if tags}}
+        <div class="top-tags">
+          {{#foreach tags limit="3"}}
+            <a class="tag" href="{{url}}">{{name}}</a>
+          {{/foreach}}
+        </div>
+        {{/if}}
+      </div>
+  </div>
+{{/foreach}}
